@@ -132,7 +132,7 @@ app.get('/', (req, res) => {
     res.send('Runing Genius Car Service')
 })
 app.get('/hero', (req, res) => {
-    req.send('hero meets heroku')
+    res.send('hero meets heroku')
 })
 
 
