@@ -131,6 +131,10 @@ run().catch(console.dir())
 app.get('/', (req, res) => {
     res.send('Runing Genius Car Service')
 })
+app.get('/hero', (req, res) => {
+    req.send('hero meets heroku')
+})
+
 
 app.listen(port, () => {
     console.log('successfully run node project', port);
