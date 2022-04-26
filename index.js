@@ -88,21 +88,24 @@ async function run() {
 
         // order Collection api
 
+        // copy
+
         app.get('/order', varifyJWT, async (req, res) => {
-            const decodedemail = req.decoded.email
-            const email = req.query
-            if (email === decodedemail) {
-                const query = { email: email }
-                const cursor = orderCollection.find(query)
-                const orders = await cursor.toArray()
-                res.send(orders)
+
+
+            // app.get('/order', varifyJWT, async (req, res) => {
+            const decodedEmail = req.decoded.email;
+            const email = req.query.email;
+            if (email === decodedEmail) {
+                const query = { email: email };
+                const cursor = orderCollection.find(query);
+                const orders = await cursor.toArray();
+                res.send(orders);
             }
             else {
-                res.status(403).send({ message: 'firbidden access' })
+                res.status(403).send({ message: 'forbidden access' })
             }
         })
-
-
 
         app.post('/order', async (req, res) => {
             const order = req.body;
